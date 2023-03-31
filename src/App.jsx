@@ -4,12 +4,16 @@ import Header from './Components/Header/Header';
 import SideCard from './Components/SideCards/SideCard';
 
 const App = () => {
-  const [readTime , setReadTime] = useState(0); 
+  const [readTime, setReadTime] = useState(0);
+  const [bookmarkTitle , setBookmarkTitle] = useState([]);
   const timeReadHandler = (time) => {
     const totalReadTime = readTime + time;
     setReadTime(totalReadTime)
   };
-  // console.log(readTime);
+  const addBookmarkHandler = (blogTitle) => {
+    setBookmarkTitle([...bookmarkTitle, blogTitle]);
+  }
+  // console.log(bookmarkTitle);
   return (
     <>
       <header className='header-container'>
@@ -18,10 +22,16 @@ const App = () => {
       <main>
         <div className='md:flex lg:flex'>
           <div className='card-container flex-initial md:w-3/5 lg:w-3/5 w-full p-4 mx-auto'>
-            <Cards timeReadHandler={timeReadHandler}></Cards>
+            <Cards
+              timeReadHandler={timeReadHandler}
+              addBookmarkHandler={addBookmarkHandler}
+            ></Cards>
           </div>
           <div className='side-card-container flex-initial md:w-2/5 lg:w-2/5 w-full h-full p-4 mx-auto sticky top-0'>
-            <SideCard readTime={readTime} ></SideCard>
+            <SideCard
+              readTime={readTime}
+              bookmarkTitle ={bookmarkTitle}
+            ></SideCard>
           </div>
         </div>
       </main>

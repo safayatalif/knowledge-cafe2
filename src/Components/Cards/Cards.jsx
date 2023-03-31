@@ -15,6 +15,7 @@ const Cards = (props) => {
                     cardData={cardData}
                     key ={cardData.id}
                     timeReadHandler ={props.timeReadHandler}
+                    addBookmarkHandler={props.addBookmarkHandler}
                     ></Card>)
             }
         </>

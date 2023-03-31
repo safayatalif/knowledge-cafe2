@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
-const Card = ({ cardData  , timeReadHandler}) => {
+const Card = ({ cardData  , timeReadHandler , addBookmarkHandler}) => {
     const { authorPicture, blogTitle, coverPicture, authorName, readTime, publishDate , hashTag } = cardData;
 
     return (
@@ -20,7 +20,7 @@ const Card = ({ cardData  , timeReadHandler}) => {
                         </div>
                         <div className='flex items-center gap-2'>
                             <p className='text-xs'>{readTime} min read</p>
-                            <button ><FontAwesomeIcon icon={faBookmark} /></button>
+                            <button onClick={()=>addBookmarkHandler(blogTitle)} ><FontAwesomeIcon icon={faBookmark} /></button>
                         </div>
                     </div>
                     <h1 className='card-title'>{blogTitle}</h1>
