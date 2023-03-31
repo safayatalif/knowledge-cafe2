@@ -2,16 +2,25 @@ import React, { useState } from 'react';
 import Cards from './Components/Cards/Cards';
 import Header from './Components/Header/Header';
 import SideCard from './Components/SideCards/SideCard';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [readTime, setReadTime] = useState(0);
-  const [bookmarkTitle , setBookmarkTitle] = useState([]);
+  const [bookmarkTitle, setBookmarkTitle] = useState([]);
   const timeReadHandler = (time) => {
     const totalReadTime = readTime + time;
     setReadTime(totalReadTime)
   };
   const addBookmarkHandler = (blogTitle) => {
-    setBookmarkTitle([...bookmarkTitle, blogTitle]);
+    const checkBookmark = bookmarkTitle.filter(title => title === blogTitle);
+    console.log(checkBookmark);
+    if (checkBookmark.length === 0) {
+      setBookmarkTitle([...bookmarkTitle, blogTitle]);
+    }
+    else {
+      toast("Already Bookmark!");
+    }
   }
   // console.log(bookmarkTitle);
   return (
@@ -30,11 +39,12 @@ const App = () => {
           <div className='side-card-container flex-initial md:w-2/5 lg:w-2/5 w-full h-full p-4 mx-auto sticky top-0'>
             <SideCard
               readTime={readTime}
-              bookmarkTitle ={bookmarkTitle}
+              bookmarkTitle={bookmarkTitle}
             ></SideCard>
           </div>
         </div>
       </main>
+      <ToastContainer></ToastContainer>
     </>
   );
 };
