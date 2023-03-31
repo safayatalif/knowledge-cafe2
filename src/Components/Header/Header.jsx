@@ -2,8 +2,8 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <>
+            <div className="navbar bg-base-100 shadow">
                 <div className="flex-1">
                     <a className="btn btn-ghost normal-case text-3xl font-bold">Knowledge Cafe</a>
                 </div>
@@ -27,7 +27,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
