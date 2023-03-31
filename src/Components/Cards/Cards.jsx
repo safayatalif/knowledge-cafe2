@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card/Card';
 
-const Cards = () => {
+const Cards = (props) => {
     const [cardDates, setCardDates] = useState([]);
     useEffect(() => {
         fetch("../../../public/fakeData.json")
@@ -14,6 +14,7 @@ const Cards = () => {
                 cardDates.map(cardData => <Card 
                     cardData={cardData}
                     key ={cardData.id}
+                    timeReadHandler ={props.timeReadHandler}
                     ></Card>)
             }
         </>

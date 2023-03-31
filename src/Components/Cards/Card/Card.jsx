@@ -2,13 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
-const Card = ({ cardData }) => {
+const Card = ({ cardData  , timeReadHandler}) => {
     const { authorPicture, blogTitle, coverPicture, authorName, readTime, publishDate , hashTag } = cardData;
 
     return (
         <>
             <div className="card w-full bg-base-100 shadow-xl mb-4">
-                <figure><img className='h-56 w-full' src={coverPicture} alt="Shoes" /></figure>
+                <figure><img className='h-64 w-full' src={coverPicture} alt="Shoes" /></figure>
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <div className='flex gap-2'>
@@ -25,7 +25,7 @@ const Card = ({ cardData }) => {
                     </div>
                     <h1 className='card-title'>{blogTitle}</h1>
                     <p className='text-xs'>{hashTag}</p>
-                    <a className='text-xs underline text-teal-700' href="">Make as read</a>
+                    <p onClick={()=>timeReadHandler(readTime)} className='text-xs underline text-teal-700 cursor-pointer' href="">Make as read</p>
                 </div>
             </div>
         </>

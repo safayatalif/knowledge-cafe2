@@ -1,9 +1,12 @@
 import React from 'react';
+import Bookmark from './Bookmark/Bookmark';
+import TimeRead from './TimeRead/TimeRead';
 
-const SideCard = () => {
+const SideCard = ({readTime}) => {
     return (
         <div>
-            
+            <TimeRead readTime ={readTime}></TimeRead>
+            <Bookmark></Bookmark>
         </div>
     );
 };
