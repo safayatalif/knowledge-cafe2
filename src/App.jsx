@@ -4,6 +4,8 @@ import Header from './Components/Header/Header';
 import SideCard from './Components/SideCards/SideCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Components/Footer/Footer';
+import Question from './Components/Question/Question';
 
 const App = () => {
   const [readTime, setReadTime] = useState(0);
@@ -14,7 +16,6 @@ const App = () => {
   };
   const addBookmarkHandler = (blogTitle) => {
     const checkBookmark = bookmarkTitle.filter(title => title === blogTitle);
-    console.log(checkBookmark);
     if (checkBookmark.length === 0) {
       setBookmarkTitle([...bookmarkTitle, blogTitle]);
     }
@@ -22,7 +23,6 @@ const App = () => {
       toast("Already Bookmark!");
     }
   }
-  // console.log(bookmarkTitle);
   return (
     <>
       <header className='header-container'>
@@ -43,7 +43,13 @@ const App = () => {
             ></SideCard>
           </div>
         </div>
+        <div className='Question-Container'>
+          <Question></Question>
+        </div>
       </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
       <ToastContainer></ToastContainer>
     </>
   );

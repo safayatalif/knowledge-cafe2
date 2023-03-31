@@ -4,7 +4,7 @@ import Card from './Card/Card';
 const Cards = (props) => {
     const [cardDates, setCardDates] = useState([]);
     useEffect(() => {
-        fetch("../../../public/fakeData.json")
+        fetch("fakeData.json")
             .then(res => res.json())
             .then(data => setCardDates(data));
     }, []);
